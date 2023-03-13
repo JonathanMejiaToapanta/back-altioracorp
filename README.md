@@ -10,7 +10,7 @@
 
 #backup: altioracorp.sql (cargada en el repositorio)
 
-#Clonar y actulizar gradle de proyecto
+#Clonar y actualizar gradle de proyecto
 
 #Selecionar/Actualizar JDK Java 11 (local)
 
