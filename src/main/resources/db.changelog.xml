@@ -1,0 +1,39 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="Jonathan Mejia" id="1721444014-1">
+        <createTable tableName="client">
+            <column name="id_client" type="UUID">
+                <constraints primaryKey="true" primaryKeyName="pk_client"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Jonathan Mejia" id="1721444014-2">
+        <createTable tableName="product">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" primaryKeyName="pk_product"/>
+            </column>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="price_unit" type="numeric(16, 2)"/>
+            <column name="stock" type="numeric(16, 2)" defaultValue="10"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Jonathan Mejia" id="1721444014-3">
+        <createTable tableName="orders">
+            <column name="id_order" type="UUID">
+                <constraints primaryKey="true" primaryKeyName="pk_order"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE"></column>
+            <column name="id_product" type="UUID"></column>
+            <column name="id_client" type="UUID"></column>
+            <column name="cant" type="numeric(16, 6)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Jonathan Mejia" id="1721444014-4">
+        <sqlFile path="inserdata.sql" relativeToChangelogFile="false"/>
+    </changeSet>
+</databaseChangeLog>

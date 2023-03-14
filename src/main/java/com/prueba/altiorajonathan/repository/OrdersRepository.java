@@ -18,9 +18,10 @@ public interface OrdersRepository extends JpaRepository<Orders, UUID> {
     Optional<Orders> findByIdOrder(UUID idOrder);
 
     @Query(nativeQuery = true,
-    value = "select o.date_created, p.code, p.\"name\", p.price_unit from orders o " +
+    value = "select o.date_created, p.code, p.\"name\", p.price_unit, o.cant from orders o " +
             "join client c on c.id_client = o.id_client " +
             "join product p on p.id = o.id_product " +
-            "where c.id_client = :idClient")
+            "where c.id_client = :idClient "+
+            "order by o.date_created")
     List<Object[]> getOrderClient(@Param("idClient") UUID idClient);
 }

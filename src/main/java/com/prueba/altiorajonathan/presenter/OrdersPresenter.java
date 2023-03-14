@@ -2,6 +2,7 @@ package com.prueba.altiorajonathan.presenter;
 
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.UUID;
 
@@ -16,4 +17,5 @@ public class OrdersPresenter {
     private UUID idClient;
     private UUID idProduct;
     private Date dateCreated;
+    private BigDecimal cant;
 }

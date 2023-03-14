@@ -31,7 +31,6 @@ spring:
   liquibase:
     enabled: true
     change-log: classpath:db.changelog.xml
-    contexts: ${spring.profiles.active}
   mail:
     host: smtp.office365.com
     port: 587

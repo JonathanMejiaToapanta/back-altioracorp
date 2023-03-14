@@ -1,0 +1,4 @@
+INSERT INTO client (id_client, name, last_name)VALUES(uuid_in(md5(random()::text || clock_timestamp()::text)::cstring),'Jonathan','Mejia');
+INSERT INTO client (id_client, name, last_name)VALUES(uuid_in(md5(random()::text || clock_timestamp()::text)::cstring),'Carlos','Bolivar');
+INSERT INTO product (id, code, name, price_unit, stock)VALUES(uuid_in(md5(random()::text || clock_timestamp()::text)::cstring), 'ABC123', 'Taladro', 12.50, 10);
+INSERT INTO product (id, code, name, price_unit, stock)VALUES(uuid_in(md5(random()::text || clock_timestamp()::text)::cstring), 'DEF345', 'Tornillo', 1.25, 10);

@@ -15,4 +15,5 @@ public class OrderByClient {
     private String code;
     private String name;
     private BigDecimal priceUnit;
+    private BigDecimal cant;
 }

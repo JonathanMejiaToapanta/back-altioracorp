@@ -24,6 +24,7 @@ public class ProductServiceImpl implements ProductService {
         product.setCode(presenter.getCode());
         product.setName(presenter.getName());
         product.setPriceUnit(presenter.getPriceUnit());
+        product.setStock(presenter.getStock());
         productRepository.save(product);
     }
 
@@ -37,14 +38,15 @@ public class ProductServiceImpl implements ProductService {
             presenter.setCode(product.getCode());
             presenter.setName(product.getName());
             presenter.setPriceUnit(product.getPriceUnit());
+            presenter.setStock(product.getStock());
             productPresenters.add(presenter);
         });
         return productPresenters;
     }
 
     @Override
-    public List<ProductPresenter> findProduct(UUID id) {
-        List<Object[]> products = productRepository.findByIds(id);
+    public List<ProductPresenter> findProduct(UUID id, BigDecimal can) {
+        List<Object[]> products = productRepository.findByIds(id, can);
         List<ProductPresenter> productPresenters = new ArrayList<>();
         if (!products.isEmpty()) {
             products.forEach(product1 -> {
@@ -53,6 +55,7 @@ public class ProductServiceImpl implements ProductService {
                 presenter.setCode((String) product1[1]);
                 presenter.setName((String) product1[2]);
                 presenter.setPriceUnit((BigDecimal) product1[3]);
+                presenter.setStock((BigDecimal) product1[4]);
                 productPresenters.add(presenter);
             });
         }

@@ -6,6 +6,7 @@ import com.prueba.altiorajonathan.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,8 +27,9 @@ public class ProductController {
     }
 
     @GetMapping("/findProduct")
-    public List<ProductPresenter> productPresenters(@RequestParam("id") UUID id) {
-        return productService.findProduct(id);
+    public List<ProductPresenter> productPresenters(@RequestParam("id") UUID id,
+                                                    @RequestParam("can") BigDecimal can) {
+        return productService.findProduct(id, can);
     }
 
 }
