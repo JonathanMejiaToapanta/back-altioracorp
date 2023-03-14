@@ -4,11 +4,9 @@
 
 #Spring Boot 2.7.10
 
-#BDD PostgreSQL
-
-#nombre: altioracorp
-
-#backup: altioracorp.sql (cargada en el repositorio)
+# BDD PostgreSQL
+# nombre: altioracorp
+Crear la base "altioracorp" y levantar proyecto y la estructura de la BDD se creara automaticamente (datachangelog) 
 
 #Clonar y actualizar gradle de proyecto
 
